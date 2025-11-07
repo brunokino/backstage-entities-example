@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: backstage-entities-example
+  description: Example Backstage entities for demonstration purposes
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/catalog-info.yaml
+spec:
+  type: url
+  targets:
+    # Organizational entities
+    - https://github.com/brunokino/backstage-entities-example/blob/main/org/groups/platform-team.yaml
+    - https://github.com/brunokino/backstage-entities-example/blob/main/org/users/alice-martinez.yaml
+    - https://github.com/brunokino/backstage-entities-example/blob/main/org/users/bob-chen.yaml
+    - https://github.com/brunokino/backstage-entities-example/blob/main/org/users/carol-johnson.yaml
+    
+    # Service components
+    - https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/catalog-info.yaml
+

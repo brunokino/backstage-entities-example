@@ -1,0 +1,73 @@
+site_name: User Service Documentation
+site_description: Technical documentation for the User Service API - RESTful microservice for user management, authentication, and authorization
+site_author: Platform Team - Kinoshita Labs
+
+repo_url: https://github.com/brunokino/backstage-entities-example
+repo_name: backstage-entities-example
+edit_uri: edit/main/services/user-service/docs/
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Overview: index.md
+  - Architecture:
+      - System Architecture: architecture.md
+      - Technology Stack: technology-stack.md
+  - API Documentation:
+      - API Reference: api-reference.md
+      - Authentication: authentication.md
+      - Error Handling: error-handling.md
+  - Development:
+      - Local Development: local-development.md
+      - Testing Strategy: testing.md
+  - Operations:
+      - Deployment: deployment.md
+      - Monitoring: monitoring.md
+      - Security: security.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - tables
+
+plugins:
+  - search
+  - techdocs-core
+
+extra:
+  version: 1.0.0
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/brunokino/backstage-entities-example
+    - icon: fontawesome/solid/envelope
+      link: mailto:platform-team@kinoshita-labs.com
+

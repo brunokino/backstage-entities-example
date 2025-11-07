@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: alice-martinez
+  description: Platform Engineering Team Lead
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/org/users/alice-martinez.yaml
+  links:
+    - url: https://github.com/alice-martinez
+      title: GitHub Profile
+      icon: github
+    - url: https://www.linkedin.com/in/alice-martinez
+      title: LinkedIn Profile
+      icon: linkedin
+spec:
+  profile:
+    displayName: Alice Martinez
+    email: alice.martinez@kinoshita-labs.com
+    picture: https://avatars.dicebear.com/api/avataaars/alice-martinez.svg
+  memberOf:
+    - platform-team
+

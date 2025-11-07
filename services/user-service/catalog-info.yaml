@@ -1,0 +1,120 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service
+  description: RESTful API service for user management, authentication, and authorization
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/catalog-info.yaml
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: brunokino/backstage-entities-example
+    sonarqube.org/project-key: user-service
+  tags:
+    - api
+    - rest
+    - authentication
+    - authorization
+    - users
+    - microservice
+  links:
+    - url: https://user-service.kinoshita-labs.com
+      title: Production API
+      icon: cloud
+    - url: https://user-service-staging.kinoshita-labs.com
+      title: Staging API
+      icon: dashboard
+    - url: https://grafana.kinoshita-labs.com/d/user-service
+      title: Grafana Dashboard
+      icon: monitoring
+    - url: https://github.com/brunokino/backstage-entities-example/tree/main/services/user-service
+      title: Source Code
+      icon: github
+    - url: https://kinoshita-labs.atlassian.net/browse/PLAT
+      title: JIRA Board
+      icon: work
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: identity-platform
+  dependsOn:
+    - resource:user-service-database
+    - resource:redis-cache
+  providesApis:
+    - user-service-api
+  consumesApis:
+    - email-service-api
+    - audit-service-api
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: user-service-api
+  description: REST API for user management operations
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/catalog-info.yaml
+  tags:
+    - rest
+    - openapi
+    - users
+  links:
+    - url: https://user-service.kinoshita-labs.com/docs
+      title: Swagger UI
+      icon: docs
+spec:
+  type: openapi
+  lifecycle: production
+  owner: platform-team
+  system: identity-platform
+  definition:
+    $text: https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/openapi.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: user-service-database
+  description: PostgreSQL database for user service
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/catalog-info.yaml
+  tags:
+    - database
+    - postgresql
+spec:
+  type: database
+  lifecycle: production
+  owner: platform-team
+  system: identity-platform
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: redis-cache
+  description: Redis cache for session management and rate limiting
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/catalog-info.yaml
+  tags:
+    - cache
+    - redis
+spec:
+  type: cache
+  lifecycle: production
+  owner: platform-team
+  system: identity-platform
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: identity-platform
+  description: Complete identity and access management platform
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/services/user-service/catalog-info.yaml
+  tags:
+    - platform
+    - identity
+    - authentication
+spec:
+  owner: platform-team
+

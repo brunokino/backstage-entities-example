@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: platform-team
+  description: Platform Engineering team responsible for core infrastructure and services
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/brunokino/backstage-entities-example/blob/main/org/groups/platform-team.yaml
+  links:
+    - url: https://kinoshita-labs.example.com/teams/platform
+      title: Team Page
+      icon: dashboard
+    - url: https://kinoshita-labs.slack.com/archives/platform-team
+      title: Slack Channel
+      icon: chat
+spec:
+  type: team
+  profile:
+    displayName: Platform Engineering Team
+    email: platform-team@kinoshita-labs.com
+    picture: https://avatars.dicebear.com/api/identicon/platform-team.svg
+  children: []
+  members:
+    - alice-martinez
+    - bob-chen
+    - carol-johnson
+
