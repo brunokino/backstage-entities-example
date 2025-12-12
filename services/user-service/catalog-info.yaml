@@ -23,6 +23,7 @@ metadata:
     - url: https://user-service-staging.kinoshita-labs.com
       title: Staging API
       icon: dashboard
+      type: kinoshita-stage
     - url: https://grafana.kinoshita-labs.com/d/user-service
       title: Grafana Dashboard
       icon: monitoring
