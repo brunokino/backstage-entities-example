@@ -19,6 +19,7 @@ metadata:
     - url: https://user-service.kinoshita-labs.com
       title: Production API
       icon: cloud
+      type: kinoshita
     - url: https://user-service-staging.kinoshita-labs.com
       title: Staging API
       icon: dashboard
